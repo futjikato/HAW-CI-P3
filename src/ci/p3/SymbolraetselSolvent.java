@@ -13,6 +13,7 @@ import org.antlr.runtime.tree.CommonTreeNodeStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author moritzspindelhirn
@@ -36,9 +37,15 @@ public class SymbolraetselSolvent {
 
     public void start() throws RecognitionException {
         CommonTreeNodeStream nodeStream = runBaseParser();
-        nodeStream = runArithFormer(nodeStream);
+        List<List<String>> tasks = runArithFormer(nodeStream);
 
-        printNodeStream(nodeStream);
+        printArithOperations(tasks);
+    }
+
+    protected void printArithOperations(List<List<String>> tasks) {
+        for(List<String> task : tasks) {
+            System.out.println(String.format("%s + %s = %s", task.get(0), task.get(1), task.get(2)));
+        }
     }
 
     protected void printNodeStream(CommonTreeNodeStream baseNodeStream) {
@@ -56,11 +63,10 @@ public class SymbolraetselSolvent {
         return new CommonTreeNodeStream(tree);
     }
 
-    protected CommonTreeNodeStream runArithFormer(CommonTreeNodeStream baseNodeStream) throws RecognitionException {
+    protected List<List<String>> runArithFormer(CommonTreeNodeStream baseNodeStream) throws RecognitionException {
         SymbolArithFormer arithFormer = new SymbolArithFormer(baseNodeStream);
-        SymbolArithFormer.prog_return progReturn = arithFormer.prog();
+        arithFormer.prog();
 
-        CommonTree tree = (CommonTree) progReturn.getTree();
-        return new CommonTreeNodeStream(tree);
+        return arithFormer.tasks;
     }
 }
