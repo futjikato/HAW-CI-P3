@@ -1,4 +1,4 @@
-package ci.antlr.sym;// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g 2013-11-25 21:59:53
+package ci.antlr.sym;// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g 2013-11-26 19:09:08
 
 import org.antlr.runtime.*;
 
@@ -8,7 +8,7 @@ public class SymbolraetselLexer extends Lexer {
     public static final int T__8=8;
     public static final int T__9=9;
     public static final int BLOCK=4;
-    public static final int LETTER=5;
+    public static final int LETTERS=5;
     public static final int WS=6;
 
     // delegates
@@ -84,22 +84,51 @@ public class SymbolraetselLexer extends Lexer {
     }
     // $ANTLR end "T__9"
 
-    // $ANTLR start "LETTER"
-    public final void mLETTER() throws RecognitionException {
+    // $ANTLR start "LETTERS"
+    public final void mLETTERS() throws RecognitionException {
         try {
-            int _type = LETTER;
+            int _type = LETTERS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:43:8: ( 'A' .. 'Z' | 'a' .. 'z' )
-            // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:
+            // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:43:9: ( ( 'A' .. 'Z' | 'a' .. 'z' )+ )
+            // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:43:12: ( 'A' .. 'Z' | 'a' .. 'z' )+
             {
-            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-                input.consume();
+            // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:43:12: ( 'A' .. 'Z' | 'a' .. 'z' )+
+            int cnt1=0;
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
+                if ( ((LA1_0>='A' && LA1_0<='Z')||(LA1_0>='a' && LA1_0<='z')) ) {
+                    alt1=1;
+                }
+
+
+                switch (alt1) {
+            	case 1 :
+            	    // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:
+            	    {
+            	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt1 >= 1 ) break loop1;
+                        EarlyExitException eee =
+                            new EarlyExitException(1, input);
+                        throw eee;
+                }
+                cnt1++;
+            } while (true);
 
 
             }
@@ -110,7 +139,7 @@ public class SymbolraetselLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "LETTER"
+    // $ANTLR end "LETTERS"
 
     // $ANTLR start "WS"
     public final void mWS() throws RecognitionException {
@@ -142,22 +171,22 @@ public class SymbolraetselLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:1:8: ( T__7 | T__8 | T__9 | LETTER | WS )
-        int alt1=5;
+        // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:1:8: ( T__7 | T__8 | T__9 | LETTERS | WS )
+        int alt2=5;
         switch ( input.LA(1) ) {
         case '=':
             {
-            alt1=1;
+            alt2=1;
             }
             break;
         case '+':
             {
-            alt1=2;
+            alt2=2;
             }
             break;
         case '-':
             {
-            alt1=3;
+            alt2=3;
             }
             break;
         case 'A':
@@ -213,24 +242,24 @@ public class SymbolraetselLexer extends Lexer {
         case 'y':
         case 'z':
             {
-            alt1=4;
+            alt2=4;
             }
             break;
         case '\t':
         case '\n':
         case ' ':
             {
-            alt1=5;
+            alt2=5;
             }
             break;
         default:
             NoViableAltException nvae =
-                new NoViableAltException("", 1, 0, input);
+                new NoViableAltException("", 2, 0, input);
 
             throw nvae;
         }
 
-        switch (alt1) {
+        switch (alt2) {
             case 1 :
                 // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:1:10: T__7
                 {
@@ -253,14 +282,14 @@ public class SymbolraetselLexer extends Lexer {
                 }
                 break;
             case 4 :
-                // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:1:25: LETTER
+                // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:1:25: LETTERS
                 {
-                mLETTER(); 
+                mLETTERS(); 
 
                 }
                 break;
             case 5 :
-                // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:1:32: WS
+                // /Users/moritzspindelhirn/Downloads/Symbolraetsel/symbolraetsel.g:1:33: WS
                 {
                 mWS(); 
 

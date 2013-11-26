@@ -1,4 +1,4 @@
-package ci.antlr.sym;// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g 2013-11-26 18:35:59
+package ci.antlr.sym;// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g 2013-11-26 18:58:36
 
 import java.util.List;
 import java.util.ArrayList;
@@ -11,14 +11,14 @@ import java.util.ArrayList;
 
 public class SymbolArithFormer extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "BLOCK", "LETTER", "WS", "'='", "'+'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "BLOCK", "LETTERS", "WS", "'='", "'+'", "'-'"
     };
     public static final int EOF=-1;
     public static final int T__7=7;
     public static final int T__8=8;
     public static final int T__9=9;
     public static final int BLOCK=4;
-    public static final int LETTER=5;
+    public static final int LETTERS=5;
     public static final int WS=6;
 
     // delegates
@@ -104,14 +104,14 @@ public class SymbolArithFormer extends TreeParser {
 
 
     // $ANTLR start "assign"
-    // /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g:24:1: assign : ( ^( '=' ^( '+' s1= BLOCK s2= BLOCK ) s3= BLOCK ) | ^( '=' ^( '-' s1= BLOCK s2= BLOCK ) s3= BLOCK ) );
+    // /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g:24:1: assign : ( ^( '=' ^( '+' ^( BLOCK s1= LETTERS ) ^( BLOCK s2= LETTERS ) ) ^( BLOCK s3= LETTERS ) ) | ^( '=' ^( '-' ^( BLOCK s1= LETTERS ) ^( BLOCK s2= LETTERS ) ) ^( BLOCK s3= LETTERS ) ) );
     public final void assign() throws RecognitionException {
         CommonTree s1=null;
         CommonTree s2=null;
         CommonTree s3=null;
 
         try {
-            // /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g:24:8: ( ^( '=' ^( '+' s1= BLOCK s2= BLOCK ) s3= BLOCK ) | ^( '=' ^( '-' s1= BLOCK s2= BLOCK ) s3= BLOCK ) )
+            // /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g:24:8: ( ^( '=' ^( '+' ^( BLOCK s1= LETTERS ) ^( BLOCK s2= LETTERS ) ) ^( BLOCK s3= LETTERS ) ) | ^( '=' ^( '-' ^( BLOCK s1= LETTERS ) ^( BLOCK s2= LETTERS ) ) ^( BLOCK s3= LETTERS ) ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -149,7 +149,7 @@ public class SymbolArithFormer extends TreeParser {
             }
             switch (alt2) {
                 case 1 :
-                    // /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g:24:10: ^( '=' ^( '+' s1= BLOCK s2= BLOCK ) s3= BLOCK )
+                    // /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g:24:10: ^( '=' ^( '+' ^( BLOCK s1= LETTERS ) ^( BLOCK s2= LETTERS ) ) ^( BLOCK s3= LETTERS ) )
                     {
                     match(input,7,FOLLOW_7_in_assign57); 
 
@@ -157,11 +157,26 @@ public class SymbolArithFormer extends TreeParser {
                     match(input,8,FOLLOW_8_in_assign60); 
 
                     match(input, Token.DOWN, null); 
-                    s1=(CommonTree)match(input,BLOCK,FOLLOW_BLOCK_in_assign64); 
-                    s2=(CommonTree)match(input,BLOCK,FOLLOW_BLOCK_in_assign68); 
+                    match(input,BLOCK,FOLLOW_BLOCK_in_assign63); 
+
+                    match(input, Token.DOWN, null); 
+                    s1=(CommonTree)match(input,LETTERS,FOLLOW_LETTERS_in_assign67); 
 
                     match(input, Token.UP, null); 
-                    s3=(CommonTree)match(input,BLOCK,FOLLOW_BLOCK_in_assign73); 
+                    match(input,BLOCK,FOLLOW_BLOCK_in_assign71); 
+
+                    match(input, Token.DOWN, null); 
+                    s2=(CommonTree)match(input,LETTERS,FOLLOW_LETTERS_in_assign75); 
+
+                    match(input, Token.UP, null); 
+
+                    match(input, Token.UP, null); 
+                    match(input,BLOCK,FOLLOW_BLOCK_in_assign80); 
+
+                    match(input, Token.DOWN, null); 
+                    s3=(CommonTree)match(input,LETTERS,FOLLOW_LETTERS_in_assign84); 
+
+                    match(input, Token.UP, null); 
 
                     match(input, Token.UP, null); 
 
@@ -175,19 +190,34 @@ public class SymbolArithFormer extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g:32:4: ^( '=' ^( '-' s1= BLOCK s2= BLOCK ) s3= BLOCK )
+                    // /Users/moritzspindelhirn/CIP/SymArithFormer/SymbolArithFormer.g:32:4: ^( '=' ^( '-' ^( BLOCK s1= LETTERS ) ^( BLOCK s2= LETTERS ) ) ^( BLOCK s3= LETTERS ) )
                     {
-                    match(input,7,FOLLOW_7_in_assign85); 
+                    match(input,7,FOLLOW_7_in_assign97); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,9,FOLLOW_9_in_assign88); 
+                    match(input,9,FOLLOW_9_in_assign100); 
 
                     match(input, Token.DOWN, null); 
-                    s1=(CommonTree)match(input,BLOCK,FOLLOW_BLOCK_in_assign92); 
-                    s2=(CommonTree)match(input,BLOCK,FOLLOW_BLOCK_in_assign96); 
+                    match(input,BLOCK,FOLLOW_BLOCK_in_assign103); 
+
+                    match(input, Token.DOWN, null); 
+                    s1=(CommonTree)match(input,LETTERS,FOLLOW_LETTERS_in_assign107); 
 
                     match(input, Token.UP, null); 
-                    s3=(CommonTree)match(input,BLOCK,FOLLOW_BLOCK_in_assign101); 
+                    match(input,BLOCK,FOLLOW_BLOCK_in_assign111); 
+
+                    match(input, Token.DOWN, null); 
+                    s2=(CommonTree)match(input,LETTERS,FOLLOW_LETTERS_in_assign115); 
+
+                    match(input, Token.UP, null); 
+
+                    match(input, Token.UP, null); 
+                    match(input,BLOCK,FOLLOW_BLOCK_in_assign120); 
+
+                    match(input, Token.DOWN, null); 
+                    s3=(CommonTree)match(input,LETTERS,FOLLOW_LETTERS_in_assign124); 
+
+                    match(input, Token.UP, null); 
 
                     match(input, Token.UP, null); 
 
@@ -221,13 +251,19 @@ public class SymbolArithFormer extends TreeParser {
     public static final BitSet FOLLOW_assign_in_prog47 = new BitSet(new long[]{0x0000000000000082L});
     public static final BitSet FOLLOW_7_in_assign57 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_8_in_assign60 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_BLOCK_in_assign64 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_BLOCK_in_assign68 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BLOCK_in_assign73 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_7_in_assign85 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_9_in_assign88 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_BLOCK_in_assign92 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_BLOCK_in_assign96 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BLOCK_in_assign101 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BLOCK_in_assign63 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LETTERS_in_assign67 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BLOCK_in_assign71 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LETTERS_in_assign75 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BLOCK_in_assign80 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LETTERS_in_assign84 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_7_in_assign97 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_9_in_assign100 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_BLOCK_in_assign103 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LETTERS_in_assign107 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BLOCK_in_assign111 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LETTERS_in_assign115 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BLOCK_in_assign120 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LETTERS_in_assign124 = new BitSet(new long[]{0x0000000000000008L});
 
 }
